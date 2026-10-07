@@ -17,6 +17,8 @@ That said, the review found **one build-blocking defect** (a malformed project-t
 
 ## Findings at a glance
 
+Status on 2026-10-06 in this snapshot: all eleven findings are still open. This repo is a snapshot of [elirc/netvg](https://github.com/elirc/netvg) taken before that repo fixed I-2 and I-6 and partly fixed I-5; the status table at the top of [issues.md](issues.md) has the evidence.
+
 | # | Severity | Finding |
 |---|---|---|
 | I-1 | Blocker | Invalid project-type GUID in `PeblClone.sln` — solution fails to parse |

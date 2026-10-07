@@ -1,6 +1,24 @@
 # Issues
 
-Concrete defects, ordered by severity. Line references are to the current state of `main`.
+Concrete defects, ordered by severity. Line references are to the state of `main` on the review date (2026-07-01), which is also the code in this snapshot.
+
+> **Status re-checked 2026-10-06 against this snapshot.** Each row was re-read in this repo's source; the findings themselves are left as written. The canonical [elirc/netvg](https://github.com/elirc/netvg) has since fixed I-2 and I-6 and partly fixed I-5; this snapshot predates that work.
+>
+> | # | Status here | Evidence |
+> |---|---|---|
+> | I-1 | **Open** | `PeblClone.sln:5,7,9,…` still use `{9A19103F-16F7-4668-BE54-9A1E7A4BA76D1}`, and `ci.yml` restores, builds and tests `PeblClone.sln`. |
+> | I-2 | **Open** | `createQuote` (`workforceApi.ts:37-77`) still falls back to client-side pricing on any error. |
+> | I-3 | **Open** | `formatters.ts:9-14` formats `new Date(value)` with no `timeZone`. |
+> | I-4 | **Open** | `WorkforceDashboardService.cs:25` sums `MonthlyCost.Amount`. |
+> | I-5 | **Open** | `HiringQuoteCalculator.cs` does not validate `Currency` at all and echoes it in the response (line 63); the browser always sends `'USD'`; the first calculator test asserts `12_799m` for an `"EUR"` request (lines 17-22). |
+> | I-6 | **Open** | `QuoteBuilder.tsx:21-31` is `try`/`finally` with no `catch`, so a rejected quote is unhandled. |
+> | I-7 | **Open** | There is no `eslint.config.*` under `src/PeblClone.Web`, and CI runs only `npm ci` and `npm run build`. |
+> | I-8 | **Open** | `Program.cs:26` registers `AddProblemDetails()`, but there is no `UseExceptionHandler()`. |
+> | I-9 | **Open** | `InMemoryWorkforceReadModel.cs:8` has `static readonly DateOnly Today`. |
+> | I-10 | **Open** | `Money.cs:9` uses `OrdinalIgnoreCase`, and the record does not normalize the currency. |
+> | I-11 | **Open** | `Program.cs:38` calls `UseHttpsRedirection()`, and `launchSettings.json` lists only `http://localhost:5088`. |
+>
+> Data nits: `mockDashboard.ts:8` says `openComplianceItems: 5` and lists three alerts.
 
 ---
 

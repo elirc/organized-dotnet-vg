@@ -2,6 +2,13 @@
 
 Not bugs — design and quality changes that would make the codebase stronger, especially given its teaching intent. Ordered roughly by value.
 
+> **Status re-checked 2026-10-06 against this snapshot (the proposals below are left as written on 2026-07-01).** None of the ten has been started here.
+> - **P-2:** the frontend still duplicates the pricing math (`workforceApi.ts:50-61`) alongside `HiringQuoteCalculator.cs:36-50`, and the expected totals are hard-coded in the tests.
+> - **P-5:** `request` throws the raw response text (`workforceApi.ts:15-18`), not the ProblemDetails `detail`; `getDashboard` falls back to the mock on *any* error; there is no timeout or retry.
+> - **P-8:** still three xUnit cases (`HiringQuoteCalculatorTests` has 2, `WorkforceDashboardServiceTests` has 1) and no frontend tests.
+> - Also unchanged: P-3 (`WorkforceDashboardService.cs:9-11` awaits sequentially), P-4 (`Result.cs`), P-6 (`QuoteBuilder.tsx` offers all three engagement types), P-7 (`StatusBadge.tsx` has its own `humanize`). The root `README.md` still contains the "This machine does not currently have the .NET SDK" sentence.
+> - The canonical `netvg` repo has since partly done P-2, P-5 and P-8; that work is not in this snapshot.
+
 ---
 
 ## P-1 — Decouple application tests from Infrastructure seed data
